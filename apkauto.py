@@ -15,8 +15,9 @@ from apkd.utils import AppVersion, AppNotFoundError
 import sys
 import os
 
-if len(sys.argv) < 3:
+if len(sys.argv) < 2:
     print(f"[!] Usage: pytthon3 {sys.argv[0]} com.package")
+    sys.exit()
 
 versions = {}
 package = sys.argv[1]
