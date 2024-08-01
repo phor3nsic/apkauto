@@ -21,7 +21,7 @@ setup(
     },
     author='phor3nsic',
     author_email='phorensic@pm.me',
-    description='Check secrets to all apk\'s version',
+    description='Search secrets to all apk\'s version',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/phor3nsic/apkauto',
