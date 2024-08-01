@@ -1,4 +1,8 @@
-*venv*
-*venv/*
 *leaks*
 *leaks/*
+*venv*
+venv/*
+build/*
+*build*
+*apkauto.egg-info*
+apkauto.egg-info/*

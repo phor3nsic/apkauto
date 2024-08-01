@@ -1,1 +1,2 @@
-git+https://github.com/kiber-io/apkd
+resecrets @ git+https://github.com/phor3nsic/resecrets
+apkd @ git+https://github.com/kiber-io/apkd

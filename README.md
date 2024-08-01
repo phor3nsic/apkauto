@@ -1,17 +1,28 @@
 # apkAuto
 ___
-Check all versions of one apk
+Check secrets to all apk's version
 
-### Run
+### Install
+
+- via pipx:
+
+```sh
+pipx install git+https://github.com/phor3nsic/apkauto
+```
+- via pip:
+
+```sh
+pip install git+https://github.com/phor3nsic/apkauto
+```
+
+### Usage
 
 ```
-python3 apkauto.py com.example
+apkauto com.app.example
 ```
 
 ### Requirements
 
-```
-trufflehog
-apktool
-apkd
-```
+- [resecrets](https://github.com/phor3nsic/resecrets)
+- [apktool](https://github.com/iBotPeaches/Apktool)
+- [apkd](https://github.com/kiber-io/apkd)
