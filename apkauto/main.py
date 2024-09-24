@@ -44,6 +44,7 @@ def main():
     
     check_apktool()
     apkd = Apkd(auto_load_sources=True)
+    apkd.remove_source("nashstore") # remove nashstore source because it's not working
     sources_names = Utils.get_available_sources_names()
     sources = Utils.import_sources(sources_names)
 
