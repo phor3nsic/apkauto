@@ -10,6 +10,7 @@
                                                                                    
 import sys
 import os
+import argparse
 import subprocess
 from pathlib import Path
 
@@ -34,19 +35,30 @@ def check_apktool():
         recommend_install()
         
 def main():
-    if len(sys.argv) < 2:
-        print(f"[!] Usage: pytthon3 {sys.argv[0]} com.package")
-        sys.exit()
-
-    versions = {}
-    package = sys.argv[1]
-    output = "/tmp/"
     
     check_apktool()
-    apkd = Apkd(auto_load_sources=True)
-    apkd.remove_source("nashstore") # remove nashstore source because it's not working
+    apkd = Apkd(auto_load_sources=False)
     sources_names = Utils.get_available_sources_names()
-    sources = Utils.import_sources(sources_names)
+    parser = argparse.ArgumentParser(add_help=True)
+    parser.add_argument("-p","--package", help="Package to search", required=True)
+    parser.add_argument(
+        "-s", "--source", 
+        help="Sources to found package", 
+        nargs="+",
+        type=str.lower,
+        default=sources_names,
+        choices=sources_names,
+        )
+    
+    args = parser.parse_args()
+
+    versions = {}
+    package = args.package
+    output = "/tmp/"
+    apkd.remove_source("nashstore") # remove nashstore source because it's not working
+    sources = Utils.import_sources(args.source)
+    for source_name, source in sources.items():
+        apkd.add_source(source_name, source)
 
     try:
         apps, newest_version = apkd.get_app_info(package)
